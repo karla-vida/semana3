@@ -29,4 +29,29 @@ function liberarBebidas(listaDeConvidados) {
 
 var convidadosComBebidasProcessada = liberarBebidas(listaDeConvidados);
 
-console.log(convidadosComBebidasProcessada);
+
+
+function separarCamarote(lista){
+    var listaSetor = lista.filter((pessoa) => pessoa.setor === "camarote");
+
+    return listaSetor;
+}
+
+function separarPista(lista){
+    var listaSetor = lista.filter((pessoa) => pessoa.setor === "pista");
+
+    return listaSetor;
+}
+
+function separarArquibancada(lista){
+    var listaSetor = lista.filter((pessoa) => pessoa.setor === "arquibancada");
+
+    return listaSetor;
+}
+
+var listaCamarote = separarCamarote(convidadosComBebidasProcessada);
+
+var listaPista = separarPista(convidadosComBebidasProcessada);
+
+var listaArquibancada = separarArquibancada(convidadosComBebidasProcessada);
+

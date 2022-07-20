@@ -8,45 +8,45 @@ let pessoaF = { nome: "Júlia", sobrenome: "da Luz", setor: "arquibancada", idad
 var listaDeConvidados = [pessoaA, pessoaB, pessoaC, pessoaD, pessoaE, pessoaF];
 
 function liberarBebidas(listaDeConvidados) {
-    var convidadoComOpenBar = [];
+  var convidadoComOpenBar = [];
 
-    for (i = 0; i < listaDeConvidados.length; i++) {
+  for (i = 0; i < listaDeConvidados.length; i++) {
 
-        var idade = listaDeConvidados[i].idade;
-        var pessoa = listaDeConvidados[i];
+    var idade = listaDeConvidados[i].idade;
+    var pessoa = listaDeConvidados[i];
 
-        if (idade >= 18) {
-            pessoa.openBar = true;
+    if (idade >= 18) {
+      pessoa.openBar = true;
 
-        } else {
-            pessoa.openBar = false;
-        }
-        convidadoComOpenBar.push(pessoa);
-
+    } else {
+      pessoa.openBar = false;
     }
-    return convidadoComOpenBar;
+    convidadoComOpenBar.push(pessoa);
+
+  }
+  return convidadoComOpenBar;
 }
 
 var convidadosComBebidasProcessada = liberarBebidas(listaDeConvidados);
 
 
 
-function separarCamarote(lista){
-    var listaSetor = lista.filter((pessoa) => pessoa.setor === "camarote");
+function separarCamarote(lista) {
+  var listaSetor = lista.filter((pessoa) => pessoa.setor === "camarote");
 
-    return listaSetor;
+  return listaSetor;
 }
 
-function separarPista(lista){
-    var listaSetor = lista.filter((pessoa) => pessoa.setor === "pista");
+function separarPista(lista) {
+  var listaSetor = lista.filter((pessoa) => pessoa.setor === "pista");
 
-    return listaSetor;
+  return listaSetor;
 }
 
-function separarArquibancada(lista){
-    var listaSetor = lista.filter((pessoa) => pessoa.setor === "arquibancada");
+function separarArquibancada(lista) {
+  var listaSetor = lista.filter((pessoa) => pessoa.setor === "arquibancada");
 
-    return listaSetor;
+  return listaSetor;
 }
 
 var listaCamarote = separarCamarote(convidadosComBebidasProcessada);
@@ -55,3 +55,25 @@ var listaPista = separarPista(convidadosComBebidasProcessada);
 
 var listaArquibancada = separarArquibancada(convidadosComBebidasProcessada);
 
+
+const ulArquibancadaEl = document.getElementById("listaArquibancada");
+const ulPistaEl = document.getElementById("listaPista");
+const ulCamaroteEl = document.getElementById("listaCamarote");
+
+
+const montaNome = (objPessoa) => {
+  return `${objPessoa.nome} ${objPessoa.sobrenome}`;
+};
+
+listaArquibancada.forEach((convidado) => {
+  ulArquibancadaEl.innerHTML += `<li>${montaNome(convidado)}</li>`;  
+});
+
+
+listaCamarote.forEach((convidado) => {
+  ulCamaroteEl.innerHTML += `<li>${montaNome(convidado)}</li>`;
+});
+
+listaPista.forEach((convidado) => {
+  ulPistaEl.innerHTML += `<li>${montaNome(convidado)}</li>`;
+});

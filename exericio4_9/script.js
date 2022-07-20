@@ -66,14 +66,25 @@ const montaNome = (objPessoa) => {
 };
 
 listaArquibancada.forEach((convidado) => {
-  ulArquibancadaEl.innerHTML += `<li>${montaNome(convidado)}</li>`;  
+  if(convidado.openBar == true) {
+    ulArquibancadaEl.innerHTML += `<li>${montaNome(convidado)} 🥂 </li>`;  
+  }else{
+    ulArquibancadaEl.innerHTML += `<li>${montaNome(convidado)} 🍼 </li>`;  
+  }
 });
 
-
 listaCamarote.forEach((convidado) => {
-  ulCamaroteEl.innerHTML += `<li>${montaNome(convidado)}</li>`;
+  if(convidado.openBar == true) {
+    ulCamaroteEl.innerHTML += `<li>${montaNome(convidado)} 🥂 </li>`;  
+  }else{
+    ulCamaroteEl.innerHTML += `<li>${montaNome(convidado)} 🍼 </li>`;  
+  }
 });
 
 listaPista.forEach((convidado) => {
-  ulPistaEl.innerHTML += `<li>${montaNome(convidado)}</li>`;
+  if(convidado.openBar == true) {
+    ulPistaEl.innerHTML += `<li>${montaNome(convidado)} 🥂 </li>`;  
+  }else{
+    ulPistaEl.innerHTML += `<li>${montaNome(convidado)} 🍼 </li>`;  
+  }
 });

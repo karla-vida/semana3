@@ -87,4 +87,4 @@ listaPista.forEach((convidado) => {
   }else{
     ulPistaEl.innerHTML += `<li>${montaNome(convidado)} 🍼 </li>`;  
   }
-});
+}); 
